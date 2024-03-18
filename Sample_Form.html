@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <!-- Link to the Indeed CSS framework -->
+    <link rel="stylesheet" href="https://cdn.indeed.com/semantic/5.0.8/semantic.min.css">
+    <style>
+        body {
+            background-image: url('your-background-image-url.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .ui.form .field {
+            margin-bottom: 20px;
+        }
+
+        .ui.message {
+            margin-top: 20px;
+        }
+
+        /* Customize submit button */
+        .ui.primary.button {
+            width: 100%;
+        }
+
+        /* Success message */
+        .success-message {
+            text-align: center;
+            margin-top: 20px;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <h2 class="ui header">Student Information Form</h2>
+        <form id="studentForm" class="ui form" onsubmit="return false;">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="field">
+                <label>Gender</label>
+                <select id="gender" name="gender" class="ui dropdown" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Upload Marks File</label>
+                <input type="file" id="marksFile" name="marksFile" required>
+            </div>
+            <div class="field">
+                <label>Rank scored by MCET</label>
+                <input type="number" id="mcetRank" name="mcetRank" placeholder="Rank scored by MCET" required>
+            </div>
+            <div class="field">
+                <label>Rank scored by JEE</label>
+                <input type="number" id="jeeRank" name="jeeRank" placeholder="Rank scored by JEE" required>
+            </div>
+            <button class="ui primary button" type="submit" onclick="submitForm()">Submit</button>
+        </form>
+        <div class="ui success message success-message" id="successMessage" style="display: none;">
+            <p>Your response has been submitted successfully!</p>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var marksFile = document.getElementById("marksFile").value;
+            if (marksFile === "") {
+                return; // If marks file is empty, do not submit the form
+            }
+            // Here, you can handle form submission, e.g., sending data to a server
+            
+            // For demonstration purposes, showing a success message
+            document.getElementById("successMessage").style.display = "block";
+            // You might want to reset the form after submission
+            // document.getElementById("studentForm").reset();
+        }
+    </script>
+</body>
+</html>
